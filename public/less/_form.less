@@ -6,13 +6,39 @@
         display: inline-block;
     }
 }
-.ui.attached.header {
-    background: #f0f0f0;
-    .right {
-        margin-top: -5px;
-        .button {
-            padding: 8px 10px;
-            font-weight: normal;
+.ui {
+    &.attached.header {
+        background: #f0f0f0;
+        .right {
+            margin-top: -5px;
+            .button {
+                padding: 8px 10px;
+                font-weight: normal;
+            }
+        }
+    }
+
+    &.file.input {
+        & > label {
+            width: 100%;
+            line-height: 1.2142em;
+            height: 37px;
+            padding: .67861429em 1em;
+            border: 1px solid rgba(34,36,38,.15);
+            border-radius: .28571429rem;
+        }
+        &.action:not([class*="left action"]) > label {
+            border-top-right-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+            border-right-color: transparent !important;
+        }
+        &.action[class*="left action"] > label {
+            border-top-left-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+            border-left-color: transparent !important;
+        }
+        & > input[type=file] {
+            display: none;
         }
     }
 }

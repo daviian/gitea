@@ -1641,6 +1641,7 @@ $(document).ready(function () {
     initVueApp();
     initTeamSettings();
     initCtrlEnterSubmit();
+    initFileupload();
     initNavbarContentToggle();
     initTopicbar();
 
@@ -1930,6 +1931,17 @@ function initCtrlEnterSubmit() {
     });
 }
 
+function initFileupload() {
+    $('.ui.action.input .ui.button').on('click', function(e) {
+       $(this).siblings('input:file').click();
+    });
+
+    $('.ui.file.input input:file').on('change', function(e) {
+       var name = e.target.files.length > 0 ? e.target.files[0].name : '';
+       $(this).siblings('label').text(name);
+    });
+}
+
 function initVueApp() {
     var el = document.getElementById('app');
     if (!el) {
@@ -2201,7 +2213,7 @@ function initTopicbar() {
                     return
                 }
                 var topicArray = topics.split(",");
-                
+
                 var last = viewDiv.children("a").last();
                 for (var i=0;i < topicArray.length; i++) {
                     $('<div class="ui green basic label topic" style="cursor:pointer;">'+topicArray[i]+'</div>').insertBefore(last)
